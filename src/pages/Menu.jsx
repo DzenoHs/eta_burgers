@@ -65,7 +65,18 @@ export default function Menu() {
     <div className="px-4 pt-8 pb-20 md:px-6 lg:px-8">
       <div className="mx-auto mt-10 grid max-w-7xl gap-8">
         <section className="rounded-[40px] border border-white/10 bg-[#171717] p-6 shadow-[0_30px_90px_-50px_rgba(0,0,0,0.75)]">
-          <h2 className="text-2xl font-semibold text-[#F8F5EF]">Combo ponude</h2>
+          <p className="text-sm uppercase tracking-[0.32em] text-[#FF6A00]">Pogledaj meni</p>
+          <h2 className="mt-3 text-3xl font-semibold text-[#F8F5EF] sm:text-4xl">Odaberi kategoriju</h2>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="#burgers" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-[#F8F5EF] transition hover:bg-white/10">Burgers</a>
+            <a href="#piletina" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-[#F8F5EF] transition hover:bg-white/10">Piletina</a>
+            <a href="#palacinci" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-[#F8F5EF] transition hover:bg-white/10">Palačinci</a>
+            <a href="#prilozi" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-[#F8F5EF] transition hover:bg-white/10">Prilozi</a>
+          </div>
+        </section>
+
+        <section id="burgers" className="scroll-mt-24 rounded-[40px] border border-white/10 bg-[#171717] p-6 shadow-[0_30px_90px_-50px_rgba(0,0,0,0.75)]">
+          <h2 className="text-2xl font-semibold text-[#F8F5EF]">Burgers</h2>
           <p className="mt-2 text-sm text-[#A3A3A3]">Svaki obrok je kompletan i spreman za prijem narudžbe.</p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {comboItems.map((item) => (
@@ -74,7 +85,7 @@ export default function Menu() {
           </div>
         </section>
 
-        <section className="rounded-[40px] border border-white/10 bg-[#171717] p-6 shadow-[0_30px_90px_-50px_rgba(0,0,0,0.75)]">
+        <section id="piletina" className="scroll-mt-24 rounded-[40px] border border-white/10 bg-[#171717] p-6 shadow-[0_30px_90px_-50px_rgba(0,0,0,0.75)]">
           <h2 className="text-2xl font-semibold text-[#F8F5EF]">Piletina i sir</h2>
           <p className="mt-2 text-sm text-[#A3A3A3]">Hrskava piletina i prženi sir, servirani uz prateće priloge.</p>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
@@ -84,7 +95,7 @@ export default function Menu() {
           </div>
         </section>
 
-        <section className="rounded-[40px] border border-white/10 bg-[#171717] p-6 shadow-[0_30px_90px_-50px_rgba(0,0,0,0.75)]">
+        <section id="palacinci" className="scroll-mt-24 rounded-[40px] border border-white/10 bg-[#171717] p-6 shadow-[0_30px_90px_-50px_rgba(0,0,0,0.75)]">
           <h2 className="text-2xl font-semibold text-[#F8F5EF]">Palačinci</h2>
           <p className="mt-2 text-sm text-[#A3A3A3]">Slatke palačinke sa premium kremovima i voćnim dodacima.</p>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
@@ -94,7 +105,7 @@ export default function Menu() {
           </div>
         </section>
 
-        <section className="rounded-[40px] border border-white/10 bg-[#171717] p-6 shadow-[0_30px_90px_-50px_rgba(0,0,0,0.75)]">
+        <section id="prilozi" className="scroll-mt-24 rounded-[40px] border border-white/10 bg-[#171717] p-6 shadow-[0_30px_90px_-50px_rgba(0,0,0,0.75)]">
           <h2 className="text-2xl font-semibold text-[#F8F5EF]">Prilozi</h2>
           <p className="mt-2 text-sm text-[#A3A3A3]">Dodaci koji upotpunjuju svaki obrok.</p>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">

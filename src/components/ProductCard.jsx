@@ -36,10 +36,7 @@ export default function ProductCard({ item }) {
         <p className="mt-3 text-sm leading-6 text-[#A3A3A3]">{item.description}</p>
         {item.ingredients ? (
           <div className="mt-4">
-            <p className="text-xs uppercase tracking-[0.28em] text-[#8FAF9B]">
-              Sastojci
-            </p>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-[#A3A3A3]">
+            <ul className="space-y-2 text-sm leading-6 text-[#A3A3A3]">
               {item.ingredients.map((ingredient) => (
                 <li key={ingredient} className="flex items-start gap-2">
                   <span className="mt-0.5 inline-block h-1.5 w-1.5 rounded-full bg-[#8FAF9B]" />
