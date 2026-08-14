@@ -56,3 +56,14 @@ textarea,
 select {
   font: inherit;
 }
+
+@keyframes logoPop {
+  0% { transform: scale(0.9) rotate(-4deg); }
+  40% { transform: scale(1.06) rotate(3deg); }
+  70% { transform: scale(0.98) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.logo-animate {
+  animation: logoPop 1.6s ease-in-out infinite;
+}

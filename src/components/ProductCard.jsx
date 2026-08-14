@@ -1,12 +1,15 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ProductCard({ item }) {
+  const { translateMenuItem, formatPrice, t } = useLanguage();
   const isCombo = item.category === 'combo';
-  const rawPrice = Number.parseFloat(String(item.price).replace(/[^0-9,.-]/g, '').replace(',', '.'));
-  const finalPrice = Number.isFinite(rawPrice) && isCombo ? rawPrice + 5 : rawPrice;
-  const displayPrice = Number.isFinite(finalPrice)
-    ? `${finalPrice.toFixed(2).replace('.', ',')} KM`
-    : item.price;
+
+  const priced = Number.parseFloat(String(item.price).replace(/[^0-9,.-]/g, '').replace(',', '.'));
+  const finalPrice = Number.isFinite(priced) && isCombo ? priced + 5 : priced;
+  const displayPrice = Number.isFinite(finalPrice) ? formatPrice(finalPrice) : item.price;
+
+  const translated = translateMenuItem(item);
 
   return (
     <article className="group overflow-hidden rounded-[28px] border border-white/10 bg-[#171717] shadow-[0_28px_70px_-40px_rgba(0,0,0,0.9)] transition-transform duration-300 hover:-translate-y-1">
@@ -14,7 +17,7 @@ export default function ProductCard({ item }) {
         {item.image ? (
           <img
             src={item.image}
-            alt={item.name}
+            alt={translated.name}
             className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
           />
         ) : null}
@@ -23,17 +26,17 @@ export default function ProductCard({ item }) {
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
           {item.new && (
             <span className="inline-flex items-center rounded-full bg-[#D7261E] px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-white">
-              Novo
+              {t('ui.new')}
             </span>
           )}
         </div>
       </div>
-      <div className="px-6 py-6 md:px-7 md:py-7">
+      <div className="px-6 py-6 md:px-7 md:py-7 text-center md:text-left">
         {!isCombo ? (
-          <p className="text-xs uppercase tracking-[0.3em] text-[#A3A3A3]">{item.categoryLabel}</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-[#A3A3A3]">{translated.categoryLabel}</p>
         ) : null}
-        <h3 className="mt-4 text-2xl font-semibold leading-tight text-[#F8F5EF]">{item.name}</h3>
-        <p className="mt-3 text-sm leading-6 text-[#A3A3A3]">{item.description}</p>
+        <h3 className="mt-4 text-2xl font-semibold leading-tight text-[#F8F5EF]">{translated.name}</h3>
+        <p className="mt-3 text-sm leading-6 text-[#A3A3A3]">{translated.description}</p>
         {item.ingredients ? (
           <div className="mt-4">
             <ul className="space-y-2 text-sm leading-6 text-[#A3A3A3]">
@@ -46,8 +49,8 @@ export default function ProductCard({ item }) {
             </ul>
           </div>
         ) : null}
-        <div className="mt-6 flex items-center justify-between">
-          <span className="text-xl font-semibold text-[#FF6A00]">{displayPrice}</span>
+        <div className="mt-6 flex items-center justify-center md:justify-between">
+          <span className="text-xl font-semibold text-[#FF6A00] text-center md:text-left">{displayPrice}</span>
         </div>
       </div>
     </article>

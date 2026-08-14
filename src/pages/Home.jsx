@@ -1,29 +1,17 @@
 ﻿import { useEffect, useState } from 'react';
 import Menu from './Menu.jsx';
-
-const titles = ['burgeri koji dižu standard', 'burgers that raise the standard'];
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Home() {
-  const [titleIndex, setTitleIndex] = useState(0);
+  const { lang, t } = useLanguage();
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    let timeoutId;
-    const interval = window.setInterval(() => {
-      setIsVisible(false);
-      timeoutId = window.setTimeout(() => {
-        setTitleIndex((current) => (current === 0 ? 1 : 0));
-        setIsVisible(true);
-      }, 220);
-    }, 4200);
-
-    return () => {
-      window.clearInterval(interval);
-      if (timeoutId) {
-        window.clearTimeout(timeoutId);
-      }
-    };
-  }, []);
+    // animate when language changes
+    setIsVisible(false);
+    const id = window.setTimeout(() => setIsVisible(true), 180);
+    return () => window.clearTimeout(id);
+  }, [lang]);
 
   return (
     <div className="relative overflow-hidden bg-[#080808]">
@@ -50,7 +38,7 @@ export default function Home() {
                     isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                   }`}
                 >
-                  {titles[titleIndex]}
+                  {t('pages.homeTitle')}
                 </span>
               </h1>
             </div>
@@ -60,7 +48,7 @@ export default function Home() {
                 href="#meni"
                 className="inline-flex items-center justify-center rounded-full bg-[#1f5a3a] px-9 py-4 text-xs font-black uppercase tracking-[0.22em] text-[#F8F5EF] transition hover:bg-[#2b704b] sm:text-sm"
               >
-                Pogledaj meni
+                {t('pages.homeCTA')}
               </a>
             </div>
           </div>
