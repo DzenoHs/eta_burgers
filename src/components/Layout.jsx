@@ -163,34 +163,7 @@ export default function Layout() {
         </div>
       </footer>
 
-      <div className="fixed bottom-0 left-0 right-0 z-30 border-t border-white/10 bg-[#080808]/95 px-3 py-2 text-[#F8F5EF] backdrop-blur-md md:hidden">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2">
-          <div className="flex w-full gap-1">
-            {navItems.map((item) => (
-              <NavLink key={item.to} to={item.to} end={item.to === '/'} className={mobileNavClass}>
-                {t(`nav.${item.key}`)}
-              </NavLink>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              aria-label="BS"
-              className={`rounded px-3 py-2 text-sm ${lang === 'bs' ? 'opacity-100 font-bold' : 'opacity-70'}`}
-              onClick={() => setLang('bs')}
-            >
-              BS
-            </button>
-            <button
-              aria-label="EN"
-              className={`rounded px-3 py-2 text-sm ${lang === 'en' ? 'opacity-100 font-bold' : 'opacity-70'}`}
-              onClick={() => setLang('en')}
-            >
-              EN
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* removed fixed bottom mobile nav per request */}
     </div>
   );
 }
