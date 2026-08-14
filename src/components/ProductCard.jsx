@@ -3,6 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ProductCard({ item }) {
   const { translateMenuItem, formatPrice, t } = useLanguage();
+  const isCombo = item.category === 'combo';
   const priced = Number.parseFloat(String(item.price).replace(/[^0-9,.-]/g, '').replace(',', '.'));
   const finalPrice = Number.isFinite(priced) ? priced : null;
   const displayPrice = Number.isFinite(finalPrice) ? formatPrice(finalPrice) : item.price;

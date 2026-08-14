@@ -10,7 +10,7 @@ const navItems = [
 ];
 
 export default function Layout() {
-  const { t, lang, setLang } = useLanguage();
+  const { t, lang, setLang, resetLanguage } = useLanguage();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const navLinkClass = ({ isActive }) =>
     `relative transition ${
@@ -82,6 +82,14 @@ export default function Layout() {
                 onClick={() => setLang('en')}
               >
                 EN
+              </button>
+              <button
+                aria-label="Change language"
+                title="Promijeni jezik"
+                onClick={() => resetLanguage()}
+                className="ml-3 rounded border border-white/10 px-3 py-1 text-sm"
+              >
+                Jezik
               </button>
             </div>
           </div>
