@@ -10,7 +10,6 @@ export default function Contact() {
         <SectionHeader
           highlight={t('contact.highlight')}
           title={t('contact.title')}
-          description={t('contact.description')}
         />
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[0.95fr_0.95fr]">
@@ -27,6 +26,10 @@ export default function Contact() {
             <h2 className="text-3xl font-semibold text-[#F8F5EF]">{t('contact.locationTitle')}</h2>
             <p className="mt-6 text-sm leading-7 text-[#A3A3A3]">{t('contact.locationText')}</p>
             <div className="mt-8 space-y-4 text-sm text-[#A3A3A3]">
+              <p>
+                <span className="font-semibold text-[#F8F5EF]">{t('contact.phoneLabel')}: </span>
+                <a className="font-semibold text-[#F8F5EF]" href="tel:+38733879238">{t('contact.phone')}</a>
+              </p>
               <p><span className="font-semibold text-[#F8F5EF]">{t('contact.instagram')}</span></p>
             </div>
           </div>
